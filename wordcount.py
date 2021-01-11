@@ -16,13 +16,16 @@ def word_count(word_file):
     for line in text_file:
         word_list = line.rstrip().split(" ")
 
+
         #iterate words in each line into a dictionary
         #add 1 to the value for each word key
-        for word in word_list:   
+        for word in word_list: 
+            word = word.strip('.,:;"?\'').lower()
+
             word_dictionary[word] = word_dictionary.get(word, 0) + 1
 
     #print the dictionary 
     for word, count in word_dictionary.items():
         print(f'{word}: {count}')   
 
-word_count("twain.txt")
+word_count("test.txt")
